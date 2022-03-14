@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace:名称空间
+-->
+
+<mapper namespace="com.openone.reggie.mapper.SetmealMapper">
+
+<!--
+   <resultMap id="setmealResultMap" type="com.openone.reggie.entity.Setmeal">
+        <result column="name" property="name"/>
+    </resultMap>
+-->
+
+
+
+
+           <!-- <if test="com.openone.reggie.entity.Setmeal.name != null and com.openone.reggie.entity.Setmeal.name !='' ">
+                and s.name like concat('%',#{com.openone.reggie.entity.Setmeal.name},'%')
+            </if>-->
+    <select id="selectAll" resultType="com.openone.reggie.dto.SetmealDto">
+        SELECT s.id,c.name category_name,s.name,s.`price`,s.`status`,s.`code`,s.`description`,s.`image`,s.`create_time`,s.`update_time`,s.`create_user`,s.`update_user`,s.`is_deleted` FROM setmeal s ,(SELECT id,NAME FROM category WHERE TYPE = 2) c
+     where s.category_id = c.id
+        <if test="com.openone.reggie.dto.SetmealDto.name != null and com.openone.reggie.dto.SetmealDto.name !='' ">
+            and s.name like concat('%',#{name},'%')
+        </if>
+    </select>
+</mapper>
