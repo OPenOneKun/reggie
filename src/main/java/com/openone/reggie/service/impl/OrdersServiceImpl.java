@@ -42,8 +42,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private DishMapper dishMapper;
     @Autowired
     private SetmealMapper setmealMapper;
-    @Autowired
-    private ShoppingCartMapper shoppingCartMapper;
 
 
     /**

@@ -2,12 +2,17 @@ server:
   port: 8082
 
 spring:
+  redis:
+    host: 192.168.17.128
+    port: 6379
+    password: root
+    database: 0
   application:
     name: reggie_take_out
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      url: jdbc:mysql://192.168.32.109:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: root
 mybatis-plus:
@@ -19,3 +24,4 @@ mybatis-plus:
       id-type: assign_id
 reggie:
   path: D:\workspace\project_01\reggie_take_out\reggie_take_out\src\main\resources\dishImgs\
+
